@@ -1,0 +1,2 @@
+# HotelSchemaG2
+ 

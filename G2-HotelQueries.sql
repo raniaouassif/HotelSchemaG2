@@ -1,4 +1,23 @@
 -- Query 1: Returns Reservations that End in July 2023, including guest, Room Number(s), Reservation Dates
+--OUTPUT
+-- guestName	roomNumber	startDate	endDate
+-- Mack Simmer	308	2023-02-02	2023-02-04
+-- Bettyann Seery	203	2023-02-05	2023-02-10
+-- Bettyann Seery	303	2023-07-28	2023-07-29
+--Duane Cullison	305	2023-02-22	2023-02-24
+--Karie Yang	201	2023-03-06	2023-03-07
+--Aurore Lipton	302	2023-03-18	2023-03-23
+--Aurore Lipton	304	2023-06-17	2023-06-18
+--Zachery Luechtefeld	202	2023-03-29	2023-03-31
+--Jeremiah Pendergrass	304	2023-03-31	2023-04-05
+--Walter Holaway	301	2023-04-09	2023-04-13
+--Walter Holaway	204	2023-07-13	2023-07-14
+--Wilfred Vise	207	2023-04-23	2023-04-24
+--Wilfred Vise	401	2023-07-18	2023-07-21
+--Maritza Tilton	401	2023-05-30	2023-06-02
+--Joleen Tison	206	2023-06-10	2023-06-14
+--Joleen Tison	208	2023-06-10	2023-06-14
+
 SELECT Guest.guestName, RoomReservation.roomNumber, Reservation.startDate, Reservation.endDate 
 FROM Reservation, RoomReservation, Guest
 WHERE Reservation.reservation_id = RoomReservation.reservation_id AND Reservation.GuestId = Guest.GuestId  AND Reservation.endDate < '2023-07-31';

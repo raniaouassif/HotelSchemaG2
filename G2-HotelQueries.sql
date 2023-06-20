@@ -68,3 +68,15 @@ ORDER BY NumberOfReservations DESC, g.guestName;
 -- Walter Holaway	2
 -- Wilfred Vise	2
 -- Zachery Luechtefeld	1
+
+-- Query 7 :  returns the name, address, and phone number of a guest based on their phone number.
+-- (Choose a phone number from the existing data.)
+SELECT guestName,
+address,
+phoneNumber
+FROM Guest
+WHERE phoneNumber = '(291) 553-0508';
+-- OUTPUT
+-- guestName Mack Simmer
+-- address 379 Old Shore Street
+-- phoneNumber (291) 553-0508

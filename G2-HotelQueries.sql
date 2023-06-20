@@ -50,7 +50,6 @@ JOIN Reservation R ON G.guestId = R.guestId
 JOIN RoomReservation RR ON R.reservation_id = RR.reservation_id
 JOIN Room RM ON RR.roomNumber = RM.roomNumber
 WHERE G.guestName = 'Aurore Lipton';
-
 -- OUTPUT
 -- guestName	roomNumber	startDate	totalGuests
 -- Aurore Lipton	302	2023-03-18	3
@@ -61,7 +60,6 @@ SELECT Room.roomNumber, Reservation.reservation_id, Room.totalBase AS 'PerRoomCo
 FROM Room
 LEFT JOIN RoomReservation ON Room.roomNumber = RoomReservation.roomNumber
 LEFT JOIN Reservation ON RoomReservation.reservation_id = Reservation.reservation_id;
-
 -- OUTPUT
 -- roomNumber	reservation_id	PerRoomCost
 -- 201	4	199.99
@@ -91,13 +89,26 @@ LEFT JOIN Reservation ON RoomReservation.reservation_id = Reservation.reservatio
 -- 401	20	399.99
 -- 402	NULL	399.99
 
+
+-- Query 5 : returns all rooms with a capacity of three or more and that are reserved on any date in April 2023.
+SELECT RM.roomNumber, RT.maxOccupancy AS 'Capacity'
+FROM Room RM
+JOIN RoomReservation RR ON RM.roomNumber = RR.roomNumber
+JOIN Reservation R ON RR.reservation_id = R.reservation_id
+JOIN RoomType RT ON RM.roomTypeId = RT.roomTypeId
+WHERE RT.maxOccupancy  >= 3
+  AND R.startDate >= '2023-04-01'
+  AND R.startDate <= '2023-04-30';
+-- OUTPUT 
+-- roomNumber	Capacity
+-- 301	        4
+
 -- Query 6: List of guest names and the number of reservations per guest
 SELECT g.guestName, COUNT(r.reservation_id) AS NumberOfReservations
 FROM Guest g
 LEFT JOIN Reservation r ON g.guestId = r.guestId
 GROUP BY g.guestName
 ORDER BY NumberOfReservations DESC, g.guestName;
-
 -- OUPUT
 -- guestName	NumberOfReservations
 -- Mack Simmer	4

@@ -7,7 +7,7 @@ CREATE DATABASE G2HotelDB;
 USE G2HotelDB;
 
 CREATE TABLE Guest (
-	guestId INT PRIMARY KEY AUTO_INCREMENT,
+    guestId INT PRIMARY KEY AUTO_INCREMENT,
     `Name` VARCHAR(100) NOT NULL,
     Address VARCHAR(200) NOT NULL,
     City VARCHAR(50) NOT NULL,
@@ -23,20 +23,14 @@ CREATE TABLE RoomType (
 	roomType VARCHAR(50) NOT NULL,
     standardOccupancy INT NOT NULL,
     maxOccupancy INT NOT NULL,
-    basePrice DECIMAL NOT NULL,
+    basePrice DECIMAL(5,2) NOT NULL,
     extraAdultFee DECIMAL NOT NULL
 );
 
 CREATE TABLE Amenity (
     amenityID INT PRIMARY KEY,
-    Room VARCHAR(10) NOT NULL,
-    Type VARCHAR(10) NOT NULL,
-    Amenities VARCHAR(100) NOT NULL,
-    ADAAccessible VARCHAR(3) NOT NULL,
-    StandardOccupancy INT NOT NULL,
-    MaximumOccupancy INT NOT NULL,
-    BasePrice DECIMAL NOT NULL,
-    ExtraPerson DECIMAL NOT NULL
+    amenityName VARCHAR(100) NOT NULL,
+    amenityPrice DECIMAL(5,2) NOT NULL
 );
 
 CREATE TABLE Reservation (
@@ -46,7 +40,7 @@ CREATE TABLE Reservation (
     children INT NOT NULL,
     startDate DATE NOT NULL,
     endDate DATE NOT NULL,
-    totalCost DECIMAL NOT NULL,
+    totalCost DECIMAL(5,2) NOT NULL,
     FOREIGN KEY fk_Reservation_Guest (guestId)
         REFERENCES Guest(guestId)
 );
@@ -55,22 +49,22 @@ CREATE TABLE Room (
 	roomNumber INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	adaAccessible BOOL NOT NULL,
     roomTypeId INT NOT NULL,
-    TotalBase DECIMAL NOT NULL,
+    TotalBase DECIMAL(5,2) NOT NULL,
     FOREIGN KEY fk_RoomType_Room (roomTypeId)
 		REFERENCES RoomType(roomTypeId)
 );
 
 CREATE TABLE RoomAmenity (
+    roomNumber INT,
     amenityID INT,
-    roomTypeID INT,
     CONSTRAINT pk_RoomAmenity
-    	PRIMARY KEY (amenityID, roomTypeID),
+    	PRIMARY KEY (amenityID, roomNumber),
     CONSTRAINT fk_RoomAmenity_Amenity
     	FOREIGN KEY (amenityID)
     	REFERENCES Amenity(amenityID),
-    CONSTRAINT fk_pk_RoomAmenity_RoomType
-    	FOREIGN KEY (roomTypeID)
-    	REFERENCES RoomType(roomTypeID)
+    CONSTRAINT fk_pk_RoomAmenity_RoomNumber
+    	FOREIGN KEY (roomNumber)
+    	REFERENCES Room(roomNumber)
 );
 
 CREATE TABLE RoomReservation (
@@ -82,6 +76,3 @@ CREATE TABLE RoomReservation (
 	FOREIGN KEY fk_RoomReservation_Room (roomNumber)
         REFERENCES Room(roomNumber)	
 );
-
-
-

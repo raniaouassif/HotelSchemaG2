@@ -13,3 +13,10 @@ WHERE G.guestName = 'Aurore Lipton';
 -- guestName	roomNumber	startDate	totalGuests
 -- Aurore Lipton	302	2023-03-18	3
 -- Aurore Lipton	304	2023-06-17	3
+
+-- Query 6: List of guest names and the number of reservations per guest
+SELECT g.guestName, COUNT(r.reservation_id) AS NumberOfReservations
+FROM Guest g
+LEFT JOIN Reservation r ON g.guestId = r.guestId
+GROUP BY g.guestName
+ORDER BY NumberOfReservations DESC, g.guestName;

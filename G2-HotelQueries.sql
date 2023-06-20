@@ -14,6 +14,41 @@ WHERE G.guestName = 'Aurore Lipton';
 -- Aurore Lipton	302	2023-03-18	3
 -- Aurore Lipton	304	2023-06-17	3
 
+-- Query 4 : returns a list of rooms, reservation ID, and per-room cost for each reservation. The results should include all rooms, whether or not there is a reservation associated with the room.
+SELECT Room.roomNumber, Reservation.reservation_id, Room.totalBase AS 'PerRoomCost'
+FROM Room
+LEFT JOIN RoomReservation ON Room.roomNumber = RoomReservation.roomNumber
+LEFT JOIN Reservation ON RoomReservation.reservation_id = Reservation.reservation_id;
+
+-- OUTPUT
+-- roomNumber	reservation_id	PerRoomCost
+-- 201	4	199.99
+-- 202	6	174.99
+-- 203	2	199.99
+-- 203	19	199.99
+-- 204	14	174.99
+-- 205	NULL	174.99
+-- 206	11	149.99
+-- 206	21	149.99
+-- 207	9	174.99
+-- 208	12	149.99
+-- 208	18	149.99
+-- 301	8	199.99
+-- 301	22	199.99
+-- 302	5	174.99
+-- 302	23	174.99
+-- 303	16	199.99
+-- 304	13	174.99
+-- 305	3	174.99
+-- 305	17	174.99
+-- 306	NULL	149.99
+-- 307	NULL	174.99
+-- 308	1	149.99
+-- 401	10	399.99
+-- 401	15	399.99
+-- 401	20	399.99
+-- 402	NULL	399.99
+
 -- Query 6: List of guest names and the number of reservations per guest
 SELECT g.guestName, COUNT(r.reservation_id) AS NumberOfReservations
 FROM Guest g

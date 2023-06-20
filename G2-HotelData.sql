@@ -31,3 +31,35 @@ INSERT INTO Guest (GuestId, `Name`, Address, City, State, Zip, PhoneNumber) VALU
     (9, 'Wilfred Vise', '77 West Surrey Street', 'Oswego', 'NY', '13126', '(834) 727-1001'),
     (10, 'Maritza Tilton', '939 Linda Rd.', 'Burke', 'VA', '22015', '(446) 351-6860'),
     (11, 'Joleen Tison', '87 Queen St.', 'Drexel Hill', 'PA', '19026', '(231) 893-2755');
+
+-- Room type table and data
+CREATE TABLE roomType (
+	roomTypeId INT NOT NULL,
+    CONSTRAINT pk_roomType
+		PRIMARY KEY (roomTypeId),
+	roomType VARCHAR(50) NOT NULL,
+    standardOccupancy INT NOT NULL,
+    maxOccupancy INT NOT NULL,
+    basePrice BIGINT NOT NULL,
+    extraAdultFee BIGINT NOT NULL
+);
+
+INSERT INTO roomType (roomTypeId, RoomType, StandardOccupancy, MaxOccupancy, BasePrice, ExtraAdultFee) VALUES
+	(2, 'Double', 2, 4, 199.99, 10),
+    (2, 'Double', 2, 4, 174.99, 10),
+    (2, 'Double', 2, 4, 199.99, 10),
+    (2, 'Double', 2, 4, 174.99, 10),
+    (1, 'Single', 2, 2, 174.99, 0),
+    (1, 'Single', 2, 2, 149.99, 0),
+    (1, 'Single', 2, 2, 174.99, 0),
+    (1, 'Single', 2, 2, 149.99, 0),
+    (2, 'Double', 2, 4, 199.99, 10),
+    (2, 'Double', 2, 4, 174.99, 10),
+    (2, 'Double', 2, 4, 199.99, 10),
+    (2, 'Double', 2, 4, 174.99, 10),
+    (1, 'Single', 2, 2, 174.99, 0),
+    (1, 'Single', 2, 2, 149.99, 0),
+    (1, 'Single', 2, 2, 174.99, 0),
+    (1, 'Single', 2, 2, 149.99, 0),
+    (3, 'Suite', 3, 8, 399.99, 20),
+    (3, 'Suite', 3, 8, 399.99, 20); 

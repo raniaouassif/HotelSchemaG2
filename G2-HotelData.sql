@@ -106,9 +106,8 @@ INSERT INTO Reservation(reservation_id, guestId, adults, children, startDate, en
 	(21, 1, 2, 0, '2023-11-22', '2023-11-25', 449.97),
 	(22, 1, 2, 2,  '2023-11-22', '2023-11-25', 599.97),
 	(23, 10, 2, 0, '2023-12-24', '2023-12-28', 699.96);
-
 INSERT INTO RoomReservation (roomNumber, reservation_id) VALUES
-    (308, 1),
+	(308, 1),
     (203, 2),
     (305, 3),
     (201, 4),

@@ -22,7 +22,7 @@ WHERE Reservation.reservation_id = RoomReservation.reservation_id AND Reservatio
 -- Joleen Tison	208	2023-06-10	2023-06-14
 
 -- Query 2 : Write a query that returns a list of all reservations for rooms with a jacuzzi, displaying the guest's name, the room number, and the dates of the reservation.
-SELECT Guest.`Name`, Room.roomNumber, Reservation.startDate, Reservation.endDate
+SELECT Guest.guestName, Room.roomNumber, Reservation.startDate, Reservation.endDate
 FROM Room
 JOIN RoomReservation ON Room.roomNumber = RoomReservation.roomNumber
 JOIN Reservation ON RoomReservation.reservation_id = Reservation.reservation_id
@@ -30,34 +30,16 @@ JOIN Guest ON Reservation.guestId = Guest.guestId
 JOIN RoomAmenity ON Room.roomNumber = RoomAmenity.roomNumber
 WHERE RoomAmenity.amenityID = 3;
 -- OUTPUT 
--- | Name                | roomNumber | startDate  | endDate    |
--- |---------------------|------------|------------|------------|
--- | Bettyann Seery      | 201        | 2023-02-05 | 2023-02-10 |
--- | Duane Cullison      | 201        | 2023-02-05 | 2023-02-10 |
--- | Duane Cullison      | 202        | 2023-02-22 | 2023-02-24 |
--- | Karie Yang          | 203        | 2023-03-06 | 2023-03-07 |
--- | Aurore Lipton       | 205        | 2023-03-18 | 2023-03-23 |
--- | Aurore Lipton       | 206        | 2023-03-29 | 2023-03-31 |
--- | Jeremiah Pendergrass | 206        | 2023-03-29 | 2023-03-31 |
--- | Walter Holaway      | 207        | 2023-03-31 | 2023-04-05 |
--- | Walter Holaway      | 208        | 2023-03-31 | 2023-04-05 |
--- | Maritza Tilton      | 301        | 2023-05-30 | 2023-06-02 |
--- | Joleen Tison        | 308        | 2023-06-10 | 2023-06-14 |
--- | Joleen Tison        | 308        | 2023-06-10 | 2023-06-14 |
--- | Aurore Lipton       | 305        | 2023-06-17 | 2023-06-18 |
--- | Walter Holaway      | 304        | 2023-07-13 | 2023-07-14 |
--- | Walter Holaway      | 304        | 2023-07-13 | 2023-07-14 |
--- | Wilfred Vise        | 305        | 2023-07-18 | 2023-07-21 |
--- | Bettyann Seery      | 302        | 2023-07-28 | 2023-07-29 |
--- | Mack Simmer         | 305        | 2023-08-30 | 2023-09-01 |
--- | Zachery Luechtefeld | 305        | 2023-08-30 | 2023-09-01 |
--- | Mack Simmer         | 305        | 2023-08-30 | 2023-09-01 |
--- | Mack Simmer         | 308        | 2023-08-30 | 2023-09-01 |
--- | Maritza Tilton      | 305        | 2023-08-30 | 2023-09-01 |
--- | Maritza Tilton      | 306        | 2023-09-16 | 2023-09-17 |
--- | Karie Yang          | 401        | 2023-09-13 | 2023-09-15 |
--- | Duane Cullison      | 401        | 2023-09-13 | 2023-09-15 |
--- | Duane Cullison      | 401        | 2023-09-13 | 2023-09-15 |
+-- guestName	roomNumber	startDate	endDate
+-- Karie Yang	201	2023-03-06	2023-03-07
+-- Bettyann Seery	203	2023-02-05	2023-02-10
+-- Karie Yang	203	2023-09-13	2023-09-15
+-- Wilfred Vise	207	2023-04-23	2023-04-24
+-- Walter Holaway	301	2023-04-09	2023-04-13
+-- Mack Simmer	301	2023-11-22	2023-11-25
+-- Bettyann Seery	303	2023-07-28	2023-07-29
+-- Duane Cullison	305	2023-02-22	2023-02-24
+-- Bettyann Seery	305	2023-08-30	2023-09-01
 
 -- Query 3 : returns all the rooms reserved for a specific guest, 
 -- including the guest's name, the room(s) reserved, the start date of the reservation, 

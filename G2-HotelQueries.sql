@@ -1,3 +1,10 @@
+-- Query 1: Returns Reservations that End in July 2023, including guest, Room Number(s), Reservation Dates
+SELECT Guest.guestName, RoomReservation.roomNumber, Reservation.startDate, Reservation.endDate 
+FROM Reservation, RoomReservation, Guest
+WHERE Reservation.reservation_id = RoomReservation.reservation_id AND Reservation.GuestId = Guest.GuestId  AND Reservation.endDate < '2023-07-31';
+
+
+
 -- Query 3 : returns all the rooms reserved for a specific guest, 
 -- including the guest's name, the room(s) reserved, the start date of the reservation, 
 -- how many people were included in the reservation.

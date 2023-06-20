@@ -40,7 +40,7 @@ CREATE TABLE Reservation (
     children INT NOT NULL,
     startDate DATE NOT NULL,
     endDate DATE NOT NULL,
-    totalCost DECIMAL(5,2) NOT NULL,
+    totalCost DECIMAL(6,2) NOT NULL,
     FOREIGN KEY fk_Reservation_Guest (guestId)
         REFERENCES Guest(guestId)
 );

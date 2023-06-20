@@ -8,7 +8,7 @@ USE G2HotelDB;
 
 CREATE TABLE Guest (
     guestId INT PRIMARY KEY AUTO_INCREMENT,
-    `Name` VARCHAR(100) NOT NULL,
+    guestName VARCHAR(100) NOT NULL,
     Address VARCHAR(200) NOT NULL,
     City VARCHAR(50) NOT NULL,
     State CHAR(2) NOT NULL,

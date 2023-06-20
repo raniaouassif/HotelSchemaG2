@@ -1,4 +1,4 @@
-INSERT INTO Guest (GuestId, `Name`, Address, City, State, Zip, PhoneNumber) VALUES
+INSERT INTO Guest (GuestId, guestName, Address, City, State, Zip, PhoneNumber) VALUES
     (1, 'Mack Simmer', '379 Old Shore Street', 'Council Bluffs', 'IA', '51501', '(291) 553-0508'),
     (2, 'Bettyann Seery', '750 Wintergreen Dr.', 'Wasilla', 'AK', '99654', '(478) 277-9632'),
     (3, 'Duane Cullison', '9662 Foxrun Lane', 'Harlingen', 'TX', '78552', '(308) 494-0198'),

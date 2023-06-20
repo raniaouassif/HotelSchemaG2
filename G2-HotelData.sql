@@ -77,3 +77,25 @@ CREATE TABLE RoomAmenity (
     	FOREIGN KEY (roomTypeID)
     	REFERENCES RoomType(roomTypeID)
 );
+
+CREATE TABLE Reservation (
+    reservation_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    guestId INT NOT NULL,
+    adults INT NOT NULL,
+    children INT NOT NULL,
+    startDate DATE NOT NULL,
+    endDate DATE NOT NULL,
+    totalCost DECIMAL NOT NULL,
+    FOREIGN KEY fk_Reservation_Guest (guestId)
+        REFERENCES Guest(guestId)
+);
+
+CREATE TABLE RoomReservation (
+    roomNumber INT NOT NULL,
+    reservation_id INT NOT NULL,
+    PRIMARY KEY pk_RoomReservation (roomNumber, reservation_id),
+    FOREIGN KEY fk_ProjectWorker_Reservation (reservation_id)
+        REFERENCES Reservation(reservation_id),
+	FOREIGN KEY fk_RoomReservation_Room (roomNumber)
+        REFERENCES Room(roomNumber)	
+);

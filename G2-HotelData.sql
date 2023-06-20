@@ -1,3 +1,11 @@
+-- This script will destroy our G2HotelDB database and start anew!
+DROP DATABASE IF EXISTS G2HotelDB;
+
+CREATE DATABASE G2HotelDB;
+
+-- Make sure we're in the correct database before we add schema.
+USE G2HotelDB;
+
 CREATE TABLE Guest (
 	GuestId INT PRIMARY KEY AUTO_INCREMENT,
     `Name` VARCHAR(100) NOT NULL,

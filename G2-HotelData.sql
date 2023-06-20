@@ -130,3 +130,12 @@ INSERT INTO RoomReservation (roomNumber, reservation_id) VALUES
     (206, 21),
     (301, 22),
     (302, 23);
+
+DELETE FROM RoomReservation
+WHERE reservation_id=7;
+
+DELETE FROM Reservation 
+WHERE guestId=7;
+
+DELETE FROM Guest 
+WHERE guestId=7;

@@ -63,3 +63,17 @@ INSERT INTO roomType (roomTypeId, RoomType, StandardOccupancy, MaxOccupancy, Bas
     (1, 'Single', 2, 2, 149.99, 0),
     (3, 'Suite', 3, 8, 399.99, 20),
     (3, 'Suite', 3, 8, 399.99, 20); 
+
+DROP TABLE IF EXISTS RoomAmenity;
+CREATE TABLE RoomAmenity (
+    amenityID INT,
+    roomTypeID INT,
+    CONSTRAINT pk_RoomAmenity
+    	PRIMARY KEY (amenityID, roomTypeID),
+    CONSTRAINT fk_RoomAmenity_Amenity
+    	FOREIGN KEY (amenityID)
+    	REFERENCES Amenity(amenityID),
+    CONSTRAINT fk_pk_RoomAmenity_RoomType
+    	FOREIGN KEY (roomTypeID)
+    	REFERENCES RoomType(roomTypeID)
+);

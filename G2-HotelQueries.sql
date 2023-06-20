@@ -20,3 +20,16 @@ FROM Guest g
 LEFT JOIN Reservation r ON g.guestId = r.guestId
 GROUP BY g.guestName
 ORDER BY NumberOfReservations DESC, g.guestName;
+
+-- OUPUT
+-- guestName	NumberOfReservations
+-- Mack Simmer	4
+-- Bettyann Seery	3
+-- Aurore Lipton	2
+-- Duane Cullison	2
+-- Joleen Tison	2
+-- Karie Yang	2
+-- Maritza Tilton	2
+-- Walter Holaway	2
+-- Wilfred Vise	2
+-- Zachery Luechtefeld	1
